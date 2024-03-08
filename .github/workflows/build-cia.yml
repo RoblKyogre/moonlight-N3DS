@@ -22,7 +22,7 @@ jobs:
         run: docker build --network=host -t moonlight-n3ds .
       - name: Build CIA
         run: |
-          docker run --rm -it -v .:/moonlight-N3DS -w /moonlight-N3DS moonlight-n3ds:latest \
+          docker run --rm -v .:/moonlight-N3DS -w /moonlight-N3DS moonlight-n3ds:latest \
             source /etc/profile.d/devkit-env.sh && make
       - name: Upload CIA
         uses: actions/upload-artifact@v4
