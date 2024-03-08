@@ -47,7 +47,7 @@ RUN apt-get install -y \
     g++
 
 # Install bannertool
-RUN wget https://github.com/Epicpkmn11/bannertool/releases/download/1.2.2/bannertool.zip && \
+RUN wget https://github.com/Epicpkmn11/bannertool/releases/download/v1.2.2/bannertool.zip && \
     unzip bannertool.zip -d /bannertool && \
     cp /bannertool/linux-x86_64/bannertool /usr/local/bin && \
     chmod +x /usr/local/bin/bannertool && \
