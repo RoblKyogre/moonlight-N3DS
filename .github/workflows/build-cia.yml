@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Build Dockerfile
         run: docker build --network=host -t moonlight-n3ds .
       - name: Build CIA
