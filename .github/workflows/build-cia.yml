@@ -1,0 +1,28 @@
+name: Build CIA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'n3ds-main'
+  pull_request:
+    branches:
+      - 'n3ds-main'
+
+jobs:
+  build-cia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Build Dockerfile
+        run: docker build --network=host -t moonlight-n3ds .
+      - name: Build CIA
+        run: |
+          docker run --rm -it -v .:/moonlight-N3DS -w /moonlight-N3DS moonlight-n3ds:latest \
+            source /etc/profile.d/devkit-env.sh && make
+      - name: Upload CIA
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.repository }}
+          path: ./*.cia
