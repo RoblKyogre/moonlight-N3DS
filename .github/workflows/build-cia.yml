@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - 'n3ds-main'
+      - 'ci-experiments'
   pull_request:
     branches:
       - 'n3ds-main'
