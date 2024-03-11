@@ -3,12 +3,7 @@ name: Build CIA
 on:
   workflow_dispatch:
   push:
-    branches:
-      - 'n3ds-main'
-      - 'n3ds-experimental'
   pull_request:
-    branches:
-      - 'n3ds-main'
 
 jobs:
   build-cia:
